@@ -103,7 +103,7 @@ void AOSCReceiver::BeginPlay()
 
 		}
 		UE_LOG(LogTemp, Display, TEXT("OSC Done!"));
-		DrawDebugSphere(GetWorld(), GetActorLocation(), 20, 20, FColor::Red, true);
+		// DrawDebugSphere(GetWorld(), GetActorLocation(), 20, 20, FColor::Red, true);
 	}
 
 	KickClay_PlayerController = Cast<AKickClay_PlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
@@ -117,7 +117,6 @@ void AOSCReceiver::BeginPlay()
 void AOSCReceiver::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AOSCReceiver::OnRightDataOSC(const FOSCAddress& AddressPattern, const FOSCMessage& Message, const FString& IPAddress, int32 Port)
@@ -132,8 +131,8 @@ void AOSCReceiver::OnRightDataOSC(const FOSCAddress& AddressPattern, const FOSCM
 		FVector SensorData(PosX, PosY, 0.0f);
 
 		OnHokuyoDataReceived.Broadcast(SensorData, IPAddress);
-		// KickClay_PlayerController->SetHokuyoInputXY(SensorData);
-		UE_LOG(LogTemp, Warning, TEXT("Right OSC Data PosX: %f, PosY:%f"), PosX,PosY);
+		
+		// UE_LOG(LogTemp, Warning, TEXT("Right OSC Data PosX: %f, PosY:%f"), PosX,PosY);
 
 
 		//여기 추가해서 넣어봄 10.20.02:08
