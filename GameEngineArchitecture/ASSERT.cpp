@@ -21,7 +21,8 @@ enum
 
 int main() {
     // Write C++ code here
-    std::cout << "Try programiz.pro";
+    STATIC_ASSERT(1==1);
+    STATIC_ASSERT(2==1);
 
     return 0;
 }
